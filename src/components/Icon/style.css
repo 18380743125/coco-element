@@ -1,0 +1,16 @@
+.tt-icon {
+  --tt-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--tt-icon-color);
+  font-size: inherit;
+}
+
+@each $val in primary, info, success, warning, danger {
+  .tt-icon--$(val) {
+    --tt-icon-color: var(--tt-color-$(val));
+  }
+}

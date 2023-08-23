@@ -4,11 +4,16 @@ import { onMounted, ref } from 'vue'
 import Button from '@/components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import CollapseItem from './components/Collapse/CollapseItem.vue'
+import Icon from './components/Icon/Icon.vue'
 
 const openedValue = ref(['a'])
+const size = ref<any>('xl')
 
-onMounted(() => {
-})
+onMounted(() => {})
+
+setTimeout(() => {
+  size.value = '2xl'
+}, 3000)
 </script>
 
 <template>
@@ -33,18 +38,19 @@ onMounted(() => {
   <Button size="large" icon="arrow-up">Icon</Button><br /><br />
 
   <Collapse v-model="openedValue">
-      <CollapseItem name="a" title="Title A">
-        <h1>headline title</h1>
-        <div> this is content a aaa </div>
-      </CollapseItem>
-      <CollapseItem name="b" title="Title B">
-        <div> this is bbbbb test </div>
-      </CollapseItem>
-      <CollapseItem name="c" title="Disabled Title" disabled>
-        <div> this is cccc test </div>
-      </CollapseItem>
-    </Collapse>
-    {{openedValue}}
+    <CollapseItem name="a" title="Title A">
+      <h1>headline title</h1>
+      <div>this is content a aaa</div>
+    </CollapseItem>
+    <CollapseItem name="b" title="Title B">
+      <div>this is bbbbb test</div>
+    </CollapseItem>
+    <CollapseItem name="c" title="Disabled Title" disabled>
+      <div>this is cccc test</div>
+    </CollapseItem>
+  </Collapse>
+  {{ openedValue }}
+  <Icon icon="arrow-up" :size="size" spin type="danger" color="orange" />
 </template>
 
 <style scoped></style>
