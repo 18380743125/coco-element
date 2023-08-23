@@ -1,0 +1,67 @@
+:root {
+  /* colors */
+  --tt-color-white: #ffffff;
+  --tt-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+
+  @each $val, $color in var(--colors) {
+    --tt-color-$(val): $(color);
+    @for $i from 3 to 9 by 2 {
+      --tt-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
+    }
+    --tt-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+    --tt-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  --tt-bg-color: #ffffff;
+  --tt-bg-color-page: #f2f3f5;
+  --tt-bg-color-overlay: #ffffff;
+  --tt-text-color-primary: #303133;
+  --tt-text-color-regular: #606266;
+  --tt-text-color-secondary: #909399;
+  --tt-text-color-placeholder: #a8abb2;
+  --tt-text-color-disabled: #c0c4cc;
+  --tt-border-color: #dcdfe6;
+  --tt-border-color-light: #e4e7ed;
+  --tt-border-color-lighter: #ebeef5;
+  --tt-border-color-extra-light: #f2f6fc;
+  --tt-border-color-dark: #d4d7de;
+  --tt-border-color-darker: #cdd0d6;
+  --tt-fill-color: #f0f2f5;
+  --tt-fill-color-light: #f5f7fa;
+  --tt-fill-color-lighter: #fafafa;
+  --tt-fill-color-extra-light: #fafcff;
+  --tt-fill-color-dark: #ebedf0;
+  --tt-fill-color-darker: #e6e8eb;
+  --tt-fill-color-blank: #ffffff;
+
+  /* border */
+  --tt-border-width: 1px;
+  --tt-border-style: solid;
+  --tt-border-color-hover: var(--tt-text-color-disabled);
+  --tt-border: var(--tt-border-width) var(--tt-border-style) var(--tt-border-color);
+  --tt-border-radius-base: 4px;
+  --tt-border-radius-small: 2px;
+  --tt-border-radius-round: 20px;
+  --tt-border-radius-circle: 100%;
+
+  /*font*/
+  --tt-font-size-extra-large: 20px;
+  --tt-font-size-large: 18px;
+  --tt-font-size-medium: 16px;
+  --tt-font-size-base: 14px;
+  --tt-font-size-small: 13px;
+  --tt-font-size-extra-small: 12px;
+  --tt-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --tt-font-weight-primary: 500;
+
+  /*disabled*/
+  --tt-disabled-bg-color: var(--tt-fill-color-light);
+  --tt-disabled-text-color: var(--tt-text-color-placeholder);
+  --tt-disabled-border-color: var(--tt-border-color-light);
+
+  /*animation*/
+  --tt-transition-duration: 0.3s;
+  --tt-transition-duration-fast: 0.2s;
+}

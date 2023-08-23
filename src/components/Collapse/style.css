@@ -1,0 +1,60 @@
+.tt-collapse {
+  --tt-collapse-border-color: var(--tt-border-color-light);
+  --tt-collapse-header-height: 48px;
+  --tt-collapse-header-bg-color: var(--tt-fill-color-blank);
+  --tt-collapse-header-text-color: var(--tt-text-color-primary);
+  --tt-collapse-header-font-size: 13px;
+  --tt-collapse-content-bg-color: var(--tt-fill-color-blank);
+  --tt-collapse-content-font-size: 13px;
+  --tt-collapse-content-text-color: var(--tt-text-color-primary);
+  --tt-collapse-disabled-text-color: var(--tt-disabled-text-color);
+  --tt-collapse-disabled-border-color: var(--tt-border-color-lighter);
+  border-top: 1px solid var(--tt-collapse-border-color);
+  border-bottom: 1px solid var(--tt-collapse-border-color);
+}
+
+.tt-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--tt-collapse-header-height);
+  line-height: var(--tt-collapse-header-height);
+  background-color: var(--tt-collapse-header-bg-color);
+  color: var(--tt-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--tt-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--tt-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--tt-collapse-border-color);
+  &.is-disabled {
+    color: var(--tt-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--tt-transition-duration);
+  }
+}
+
+.tt-collapse-item__content {
+  will-change: height;
+  background-color: var(--tt-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--tt-collapse-content-font-size);
+  color: var(--tt-collapse-content-text-color);
+  border-bottom: 1px solid var(--tt-collapse-border-color);
+  padding-bottom: 25px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height var(--tt-transition-duration);
+}

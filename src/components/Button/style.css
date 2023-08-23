@@ -1,0 +1,131 @@
+.tt-button {
+  --tt-button-font-weight: var(--tt-font-weight-primary);
+  --tt-button-border-color: var(--tt-border-color);
+  --tt-button-bg-color: var(--tt-fill-color-blank);
+  --tt-button-text-color: var(--tt-text-color-regular);
+  --tt-button-disabled-text-color: var(--tt-disabled-text-color);
+  --tt-button-disabled-bg-color: var(--tt-fill-color-blank);
+  --tt-button-disabled-border-color: var(--tt-border-color-light);
+  --tt-button-hover-text-color: var(--tt-color-primary);
+  --tt-button-hover-bg-color: var(--tt-color-primary-light-9);
+  --tt-button-hover-border-color: var(--tt-color-primary-light-7);
+  --tt-button-active-text-color: var(--tt-button-hover-text-color);
+  --tt-button-active-border-color: var(--tt-color-primary);
+  --tt-button-active-bg-color: var(--tt-button-hover-bg-color);
+  --tt-button-outline-color: var(--tt-color-primary-light-5);
+  --tt-button-active-color: var(--tt-text-color-primary);
+}
+
+.tt-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--tt-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--tt-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--tt-button-bg-color);
+  border: var(--tt-border);
+  border-color: var(--tt-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--tt-font-size-base);
+  border-radius: var(--tt-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--tt-button-hover-text-color);
+    border-color: var(--tt-button-hover-border-color);
+    background-color: var(--tt-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--tt-button-active-text-color);
+    border-color: var(--tt-button-active-border-color);
+    background-color: var(--tt-button-active-bg-color);
+    outline: none;
+  }
+  &.is-plain {
+    --tt-button-hover-text-color: var(--tt-color-primary);
+    --tt-button-hover-bg-color: var(--tt-fill-color-blank);
+    --tt-button-hover-border-color: var(--tt-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--tt-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--tt-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--tt-button-disabled-bg-color);
+    border-color: var(--tt-button-disabled-border-color);
+  }
+  [class*='tt-icon'] + span {
+    margin-left: 6px;
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  .tt-button--$(val) {
+    --tt-button-text-color: var(--tt-color-white);
+    --tt-button-bg-color: var(--tt-color-$(val));
+    --tt-button-border-color: var(--tt-color-$(val));
+    --tt-button-outline-color: var(--tt-color-$(val)-light-5);
+    --tt-button-active-color: var(--tt-color-$(val)-dark-2);
+    --tt-button-hover-text-color: var(--tt-color-white);
+    --tt-button-hover-bg-color: var(--tt-color-$(val)-light-3);
+    --tt-button-hover-border-color: var(--tt-color-$(val)-light-3);
+    --tt-button-active-bg-color: var(--tt-color-$(val)-dark-2);
+    --tt-button-active-border-color: var(--tt-color-$(val)-dark-2);
+    --tt-button-disabled-text-color: var(--tt-color-white);
+    --tt-button-disabled-bg-color: var(--tt-color-$(val)-light-5);
+    --tt-button-disabled-border-color: var(--tt-color-$(val)-light-5);
+  }
+  .tt-button--$(val).is-plain {
+    --tt-button-text-color: var(--tt-color-$(val));
+    --tt-button-bg-color: var(--tt-color-$(val)-light-9);
+    --tt-button-border-color: var(--tt-color-$(val)-light-5);
+    --tt-button-hover-text-color: var(--tt-color-white);
+    --tt-button-hover-bg-color: var(--tt-color-$(val));
+    --tt-button-hover-border-color: var(--tt-color-$(val));
+    --tt-button-active-text-color: var(--tt-color-white);
+  }
+}
+
+.tt-button--large {
+  --tt-button-size: 40px;
+  height: var(--tt-button-size);
+  padding: 12px 19px;
+  font-size: var(--tt-font-size-base);
+  border-radius: var(--tt-border-radius-base);
+}
+
+.tt-button--small {
+  --tt-button-size: 24px;
+  height: var(--tt-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--tt-border-radius-base) - 1px);
+}
