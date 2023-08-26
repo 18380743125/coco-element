@@ -5,20 +5,40 @@ import Button from '@/components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import CollapseItem from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
+import Tooltip from './components/Tooltip/Tooltip.vue'
+import type { ToolTipInstance } from './components/Tooltip/types'
 
 const openedValue = ref(['a'])
 const size = ref<any>('xl')
+const trigger = ref<any>('click')
+const tooltipRef = ref<ToolTipInstance | null>(null)
 
 onMounted(() => {})
 
 setTimeout(() => {
   size.value = '2xl'
+  trigger.value = 'hover'
 }, 3000)
+
+const hello = () => {
+  tooltipRef.value?.show()
+}
+const nick = () => {
+  tooltipRef.value?.hide()
+}
 </script>
 
 <template>
-  <Button ref="buttonRef">Test Button</Button>
-  <Button plain>Plain Button</Button>
+  <header>
+    <Tooltip ref="tooltipRef" :popper-options="{placement: 'left', strategy: 'fixed'}" :open-delay="1000">
+      哈哈
+      <template #content>
+        <h1>哈哈哈</h1>
+      </template>
+    </Tooltip>
+  </header>
+  <Button @click="hello" ref="buttonRef">Test Button</Button>
+  <Button @click="nick" plain>Plain Button</Button>
   <Button round>Round Button</Button>
   <Button circle>VK</Button>
   <Button disabled>Disabled Button</Button><br /><br />
