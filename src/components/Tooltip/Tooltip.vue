@@ -4,11 +4,11 @@ import { debounce } from 'lodash-es'
 import { createPopper } from '@popperjs/core'
 import type { Instance } from '@popperjs/core'
 
-import type { TooltipProps, TooltipEmits, ToolTipInstance } from './types'
+import type { TooltipProps, TooltipEmits, TooltipInstance } from './types'
 import useClickOutSide from '../../hooks/useClickOutSide'
 
 const props = withDefaults(defineProps<TooltipProps>(), {
-  placement: 'top',
+  placement: 'right',
   trigger: 'hover',
   manual: false,
   transition: 'fade',
@@ -138,7 +138,7 @@ if (!props.manual) {
   attachEvents()
 }
 
-defineExpose<ToolTipInstance>({
+defineExpose<TooltipInstance>({
   show: openFinal,
   hide: closeFinal
 })

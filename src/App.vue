@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, h } from 'vue'
 
 import Button from '@/components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue'
 import CollapseItem from './components/Collapse/CollapseItem.vue'
 import Icon from './components/Icon/Icon.vue'
 import Tooltip from './components/Tooltip/Tooltip.vue'
-import type { ToolTipInstance } from './components/Tooltip/types'
+import type { TooltipInstance } from './components/Tooltip/types'
+import type { MenuOption } from './components/Dropdown/types'
+// import Dropdown from './components/Dropdown/Dropdown.vue'
+import Dropdown from './components/Dropdown/Dropdown'
 
 const openedValue = ref(['a'])
 const size = ref<any>('xl')
 const trigger = ref<any>('click')
-const tooltipRef = ref<ToolTipInstance | null>(null)
+const dropdownRef = ref<TooltipInstance | null>(null)
 
 onMounted(() => {})
 
@@ -20,25 +23,39 @@ setTimeout(() => {
   trigger.value = 'hover'
 }, 3000)
 
-const hello = () => {
-  tooltipRef.value?.show()
+const open = () => {
+  dropdownRef.value?.show()
 }
-const nick = () => {
-  tooltipRef.value?.hide()
+const close = () => {
+  dropdownRef.value?.hide()
+}
+
+const options: MenuOption[] = [
+  { key: 1, label: h('b', 'this is bold') },
+  { key: 2, label: 'item2', disabled: true },
+  { key: 3, label: 'item3', divided: true },
+  { key: 4, label: 'item4' }
+]
+
+const inlineConsole = (...args: any) => {
+  console.log(...args)
 }
 </script>
 
 <template>
-  <header>
-    <Tooltip ref="tooltipRef" :popper-options="{placement: 'left', strategy: 'fixed'}" :open-delay="1000">
-      哈哈
-      <template #content>
-        <h1>哈哈哈</h1>
-      </template>
-    </Tooltip>
-  </header>
-  <Button @click="hello" ref="buttonRef">Test Button</Button>
-  <Button @click="nick" plain>Plain Button</Button>
+  <Dropdown
+    placement="bottom"
+    :trigger="trigger"
+    :menu-options="options"
+    @visible-change="(e: boolean) => inlineConsole('visible change', e)"
+    @select="(e: MenuOption) => inlineConsole('select', e)"
+    
+    ref="dropdownRef"
+  >
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  </Dropdown>
+  <Button @click="open" ref="buttonRef">Test Button</Button>
+  <Button @click="close" plain>Plain Button</Button>
   <Button round>Round Button</Button>
   <Button circle>VK</Button>
   <Button disabled>Disabled Button</Button><br /><br />
