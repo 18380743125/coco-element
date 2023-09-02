@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+
 const RenderVnode = defineComponent({
   props: {
     vNode: {

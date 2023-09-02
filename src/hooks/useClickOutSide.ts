@@ -1,6 +1,6 @@
 import { onMounted, onUnmounted, type Ref } from 'vue'
 
-function useClickOutSide(
+function useClickOutside(
   elementRef: Ref<undefined | HTMLElement>,
   callback: (e: MouseEvent) => void
 ) {
@@ -22,4 +22,4 @@ function useClickOutSide(
   }
 }
 
-export default useClickOutSide
+export default useClickOutside

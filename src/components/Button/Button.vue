@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import type { ButtonProps } from './types'
 import Icon from '../Icon/Icon.vue';
 
@@ -10,16 +11,16 @@ withDefaults(defineProps<ButtonProps>(), {
   nativeType: 'button'
 })
 
-const _ref = ref<HTMLButtonElement>()
+const buttonRef = ref<HTMLButtonElement>()
 
 defineExpose({
-  ref: _ref
+  ref: buttonRef
 })
 </script>
 
 <template>
   <button
-    ref="_ref"
+    ref="buttonRef"
     class="tt-button"
     :class="{
       [`tt-button--${type}`]: type,
