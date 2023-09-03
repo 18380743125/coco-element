@@ -21,4 +21,4 @@ const customStyles = computed(() => (props.color ? { color: props.color } : {}))
   </i>
 </template>
 
-<style lang="less" scoped></style>
+<style scoped></style>

@@ -67,4 +67,4 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style scoped></style>
