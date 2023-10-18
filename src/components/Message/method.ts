@@ -11,6 +11,7 @@ export const createMessage = (props: CreateMessageProps) => {
   const { nextZIndex } = useZIndex()
   const id = `message_${seed++}`
   const container = document.createElement('div')
+
   // 删除数组中的实例
   const destroy = () => {
     const idx = instances.findIndex((instance) => instance.id === id)
@@ -18,6 +19,7 @@ export const createMessage = (props: CreateMessageProps) => {
     instances.splice(idx, 1)
     render(null, container)
   }
+
   const newProps = {
     ...props,
     id,

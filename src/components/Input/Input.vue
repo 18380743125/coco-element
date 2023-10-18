@@ -13,7 +13,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<InputProps>(), {
   type: 'text',
-  clearable: true,
+  clearable: false,
   autocomplete: 'off'
 })
 const emits = defineEmits<InputEmits>()
@@ -92,11 +92,13 @@ defineExpose({
       <div v-if="$slots.prepend" class="tt-input__prepend">
         <slot name="prepend" />
       </div>
+
       <div class="tt-input__wrapper">
         <!-- prefix slot -->
         <span v-if="$slots.prefix" class="tt-input__prefix">
           <slot name="prefix" />
         </span>
+
         <input
           class="tt-input__inner"
           :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
@@ -114,6 +116,7 @@ defineExpose({
           @focus="handleFocus"
           @blur="handleBlur"
         />
+
         <!-- suffix slot -->
         <span
           v-if="$slots.suffix || showClear || showPasswordArea"
@@ -142,11 +145,13 @@ defineExpose({
           />
         </span>
       </div>
+
       <!-- append slot -->
       <div v-if="$slots.append" class="tt-input__append">
         <slot name="append" />
       </div>
     </template>
+
     <!-- textarea -->
     <template v-else>
       <textarea

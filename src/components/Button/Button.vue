@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import type { ButtonProps } from './types'
-import Icon from '../Icon/Icon.vue';
+import Icon from '../Icon/Icon.vue'
 
 defineOptions({
   name: 'TTButton'
@@ -43,5 +43,4 @@ defineExpose({
   </button>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

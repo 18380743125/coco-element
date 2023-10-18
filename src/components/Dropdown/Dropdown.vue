@@ -51,7 +51,10 @@ defineExpose<DropdownInstance>({
       manual
       ref="tooltipRef"
     >
+      <!-- trigger area -->
       <slot />
+
+      <!-- content area -->
       <template #content>
         <ul class="tt-dropdown__menu">
           <template v-for="item in menuOptions" :key="item.key">

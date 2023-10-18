@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
+
 import type { CollapseItemProps } from './types'
 import { collapseContextKey } from './types'
+
 import Icon from '../Icon/Icon.vue'
 
 defineOptions({
   name: 'TTCollapseItem'
 })
-
 const props = defineProps<CollapseItemProps>()
 
 const collapseContext = inject(collapseContextKey)
@@ -48,6 +49,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
 </script>
 <template>
   <div class="tt-collapse-item">
+    <!-- header -->
     <div
       class="tt-collapse-item__header"
       :id="`item-header-${name}`"
@@ -57,6 +59,8 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       <slot name="title">{{ title }}</slot>
       <Icon icon="angle-right" class="header-angle" />
     </div>
+
+    <!-- content -->
     <Transition name="slide" v-on="transitionEvents">
       <div class="tt-collapse-item__wrapper" v-show="isActive">
         <div class="tt-collapse-item__content" :id="`item-content-${name}`">

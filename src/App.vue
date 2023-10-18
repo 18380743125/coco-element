@@ -1,25 +1,18 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import Switch from '@/components/Switch/Switch.vue'
+import { ref } from 'vue'
+import type { SwitchValueType } from './components/Switch/types'
 
-import Button from '@/components/Button/Button.vue'
-import Input from '@/components/Input/Input.vue'
-import { createMessage } from './components/Message/method'
+const value = ref(false)
 
-const value = ref('')
-onMounted(() => {})
-
-const open = () => {
-  createMessage({
-    type: 'warning',
-    message: 'hello，你好'
-  })
+const handleChange = (e: SwitchValueType) => {
+  console.log(e)
 }
 </script>
 
 <template>
-  <Button @click="open" ref="buttonRef">Test Button</Button>
-  <div style="width: 300px;">
-    <Input type="text" v-model="value" />
+  <div>
+    <Switch active-text="ON" inactive-text="OFF" v-model="value" @change="handleChange"></Switch>
   </div>
 </template>
 
