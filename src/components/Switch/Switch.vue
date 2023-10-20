@@ -3,7 +3,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import type { SwitchProps, SwitchEmits } from './types'
 
 defineOptions({
-  name: 'ttSwtich',
+  name: 'TTSwitch',
   inheritAttrs: false
 })
 
@@ -68,7 +68,7 @@ watch(
           {{ checked ? activeText : inactiveText }}
         </span>
       </div>
-      <div class="tt-switch__core-action"></div>
+      <div class="tt-switch__core-action" />
     </div>
   </div>
 </template>

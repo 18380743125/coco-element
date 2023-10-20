@@ -1,0 +1,56 @@
+.tt-form {
+  --tt-form-label-font-size: var(--tt-font-size-base);
+  --tt-form-content-font-size: var(--tt-font-size-base);
+}
+
+.tt-form-item {
+  display: flex;
+  margin-bottom: 18px;
+
+  .tt-form-item__label {
+    width: 150px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: flex-end;
+    font-size: var(--tt-form-label-font-size);
+    color: var(--tt-text-color-regular);
+  }
+
+  .tt-form-item__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    line-height: 32px;
+    font-size: var(--tt-form-content-font-size);
+    min-width: 0;
+    position: relative;
+  }
+
+  .tt-form-item__error-msg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 2px;
+    color: var(--tt-color-danger);
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+.tt-form-item.is-error .tt-input__wrapper {
+  box-shadow: 0 0 0 1px var(--tt-color-danger) inset;
+}
+
+.tt-form-item.is-success .tt-input__wrapper {
+  box-shadow: 0 0 0 1px var(--tt-color-success) inset;
+}
+
+.tt-form-item.is-required > .tt-form-item__label::before {
+  content: '*';
+  color: var(--tt-color-danger);
+  margin-right: 4px;
+}

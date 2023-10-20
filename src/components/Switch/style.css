@@ -11,12 +11,14 @@
   font-size: 14px;
   line-height: 20px;
   height: 32px;
+
   .tt-swtich__input {
     position: absolute;
     width: 0;
     height: 0;
     opacity: 0;
     margin: 0;
+
     &:focus-visible {
       & ~ .tt-switch__core {
         outline: 2px solid var(--tt-switch-on-color);
@@ -24,21 +26,25 @@
       }
     }
   }
+
   &.is-disabled {
     opacity: 0.6;
     .tt-switch__core {
       cursor: not-allowed;
     }
   }
+
   &.is-checked {
     .tt-switch__core {
       border-color: var(--tt-switch-on-border-color);
       background-color: var(--tt-switch-on-color);
+
       .tt-switch__core-action {
         left: calc(100% - 17px);
       }
+
       .tt-switch__core-inner {
-        padding: 0 18px 0 4px;
+        padding: 0 20px 0 6px;
       }
     }
   }
@@ -48,15 +54,22 @@
   font-size: 14px;
   line-height: 24px;
   height: 40px;
+
   .tt-switch__core {
     min-width: 50px;
     height: 24px;
     border-radius: 12px;
+
+    .tt-switch__core-inner {
+      padding: 0 6px 0 24px;
+    }
+
     .tt-switch__core-action {
       width: 20px;
       height: 20px;
     }
   }
+
   &.is-checked {
     .tt-switch__core .tt-switch__core-action {
       left: calc(100% - 21px);
@@ -69,15 +82,22 @@
   font-size: 12px;
   line-height: 16px;
   height: 24px;
+
   .tt-switch__core {
-    min-width: 30px;
-    height: 22px;
+    min-width: 36px;
+    height: 20px;
     border-radius: 8px;
+
+    .tt-switch__core-inner {
+      padding: 0 6px 0 16px;
+    }
+
     .tt-switch__core-action {
       width: 12px;
       height: 12px;
     }
   }
+
   &.is-checked {
     .tt-switch__core .tt-switch-core-action {
       left: calc(100% - 13px);
@@ -120,7 +140,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 0 4px 0 18px;
+    padding: 0 6px 0 20px;
+
     .tt-switch__core-inner-text {
       font-size: 12px;
       color: var(--tt-color-white);

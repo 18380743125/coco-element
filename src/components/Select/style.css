@@ -1,0 +1,88 @@
+.tt-select {
+  --tt-select-item-hover-bg-color: var(--tt-fill-color-light);
+  --tt-select-item-font-size: var(--tt-font-size-base);
+  --tt-select-item-font-color: var(--tt-text-color-regular);
+  --tt-select-item-selected-font-color: var(--tt-color-primary);
+  --tt-select-item-disabled-font-color: var(--tt-text-color-placeholder);
+  --tt-select-input-focus-border-color: var(--tt-color-primary);
+}
+
+.tt-select {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 32px;
+
+  .tt-tooltip .tt-tooltip__popper {
+    padding: 0;
+  }
+
+  .tt-input.is-focus .tt-input__wrapper {
+    box-shadow: 0 0 0 1px var(--tt-select-input-focus-border-color) inset !important;
+  }
+
+  .tt-input {
+    .header-angle {
+      transition: transform var(--tt-transition-duration);
+      &.is-active {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .tt-input__inner {
+    cursor: pointer;
+  }
+
+  .tt-select__nodata,
+  .tt-select__loading {
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    color: var(--tt-text-color-secondary);
+    font-size: var(--tt-select-font-size);
+  }
+
+  .tt-select__menu {
+    list-style: none;
+    margin: 6px 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .tt-select__menu-item {
+    margin: 0;
+    font-size: var(--tt-select-item-font-size);
+    padding: 0 32px 0 20px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--tt-select-item-font-color);
+    height: 34px;
+    line-height: 34px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--tt-select-item-hover-bg-color);
+    }
+
+    &.is-selected {
+      color: var(--tt-select-item-selected-font-color);
+      font-weight: 700;
+    }
+
+    &.is-highlighted {
+      background-color: var(--tt-select-item-hover-bg-color);
+    }
+
+    &.is-disabled {
+      color: var(--tt-select-item-disabled-font-color);
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
